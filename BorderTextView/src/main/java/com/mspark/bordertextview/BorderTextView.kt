@@ -18,6 +18,10 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
         TextPaint()
     }
 
+    private val textBounds: Rect by lazy {
+        Rect()
+    }
+
     constructor(context: Context): this(context, null)
     constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(
@@ -76,16 +80,14 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
                 xPos = width - paddingEnd
             }
             else -> {
-                strokePaint.textAlign = Paint.Align.CENTER
+                strokePaint.textAlign = Paint.Align.LEFT
+                xPos = paddingStart
             }
         }
 
-
-        val rect = Rect()
-
         if (stroke) {
             for (i in 0 until lineCount) {
-                val yPos = getLineBounds(i, rect)
+                val yPos = getLineBounds(i, textBounds)
                 val lineStart = layout.getLineStart(i)
                 val lineEnd = layout.getLineEnd(i)
                 var lineString = text.substring(lineStart, lineEnd)
