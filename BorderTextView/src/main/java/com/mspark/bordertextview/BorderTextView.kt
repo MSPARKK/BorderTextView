@@ -18,6 +18,10 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
         TextPaint()
     }
 
+    private val textBounds: Rect by lazy {
+        Rect()
+    }
+
     constructor(context: Context): this(context, null)
     constructor(context: Context, attrs: AttributeSet?): this(context, attrs, 0)
     constructor(context: Context, attrs: AttributeSet?, defStyleAttr: Int): super(
@@ -29,15 +33,12 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
     }
 
     private fun initView(attrs: AttributeSet?) {
-        attrs?.let {
-            context.obtainStyledAttributes(it, R.styleable.BorderTextView).apply {
-                stroke = getBoolean(R.styleable.BorderTextView_textStroke, false)
-                strokeWidth = getFloat(R.styleable.BorderTextView_textStrokeWidth, 0.0f)
-                strokeColor = getColor(R.styleable.BorderTextView_textStrokeColor, -0x1)
-                recycle()
-            }
+        context.obtainStyledAttributes(attrs, R.styleable.BorderTextView).apply {
+            stroke = getBoolean(R.styleable.BorderTextView_textStroke, false)
+            strokeWidth = getFloat(R.styleable.BorderTextView_textStrokeWidth, 0.0f)
+            strokeColor = getColor(R.styleable.BorderTextView_textStrokeColor, -0x1)
+            recycle()
         }
-
         setupPaint()
     }
 
@@ -59,41 +60,32 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
             color = strokeColor
         }
 
-        val text = text.toString()
-
-        var xPos = width / 2
-
-        when (gravity) {
+        val xPos: Int = when (gravity) {
             Gravity.CENTER -> {
                 strokePaint.textAlign = Paint.Align.CENTER
+                width / 2
             }
             Gravity.CENTER_VERTICAL + Gravity.LEFT -> {
                 strokePaint.textAlign = Paint.Align.LEFT
-                xPos = paddingStart
+                paddingStart
             }
             Gravity.CENTER_VERTICAL + Gravity.RIGHT -> {
                 strokePaint.textAlign = Paint.Align.RIGHT
-                xPos = width - paddingEnd
+                width - paddingEnd
             }
             else -> {
-                strokePaint.textAlign = Paint.Align.CENTER
+                strokePaint.textAlign = Paint.Align.LEFT
+                paddingStart
             }
         }
 
-
-        val rect = Rect()
-
         if (stroke) {
             for (i in 0 until lineCount) {
-                val yPos = getLineBounds(i, rect)
+                val yPos = getLineBounds(i, textBounds)
                 val lineStart = layout.getLineStart(i)
                 val lineEnd = layout.getLineEnd(i)
-                var lineString = text.substring(lineStart, lineEnd)
+                val lineString = text.substring(lineStart, lineEnd).trimEnd()
 
-                if (!lineString.contains("\n") && i != lineCount - 1) {
-                    lineString = lineString.trimEnd()
-                }
-                lineString = lineString.replace("\n", "")
                 canvas.drawText(lineString, xPos.toFloat(), yPos.toFloat(), strokePaint)
             }
         }
