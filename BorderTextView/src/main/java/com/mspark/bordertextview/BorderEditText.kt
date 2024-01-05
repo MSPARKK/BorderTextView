@@ -4,7 +4,7 @@ import android.content.Context
 import android.graphics.Canvas
 import android.util.AttributeSet
 
-class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
+class BorderEditText : androidx.appcompat.widget.AppCompatEditText {
 
     private val borderComponent: BorderTextComponent by lazy {
         BorderTextComponent(this)
@@ -23,7 +23,6 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
     override fun onDraw(canvas: Canvas) {
         borderComponent.onDraw(canvas)
 
-
         super.onDraw(canvas)
     }
 
@@ -35,5 +34,4 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
     fun setStrokeWidth(width: Int) {
         borderComponent.setStrokeWidth(width)
     }
-
 }
