@@ -4,16 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/green"
     tools:context=".MainActivity">
 
     <com.mspark.bordertextview.BorderTextView
         android:id="@+id/xml_text_view"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="by xml"
+        android:text="by xml by xmlby xmlby\nxmlby xmlby xml"
         android:textSize="30sp"
         android:textColor="@color/white"
         app:textStroke="true"
+        android:gravity="center"
         app:textStrokeColor="@color/red"
         app:textStrokeWidth="7"
         android:layout_marginTop="20dp"
@@ -25,12 +27,41 @@
         android:id="@+id/programmatic_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="by programmatic"
+        android:text="by progrffsdfds아아아아아가나다라바sdf sdsdfsdfsdf\nsdfsdf\n\nsdfdsfsdffsdf"
         android:textSize="30sp"
         android:textColor="@color/white"
+        app:textStroke="true"
+        app:textStrokeColor="@color/black"
+        app:textStrokeWidth="7"
         android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/xml_text_view" />
+
+    <Button
+        android:id="@+id/test_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/programmatic_text_view"/>
+
+    <com.mspark.bordertextview.BorderEditText
+        android:id="@+id/main_edit_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textSize="28dp"
+        android:textColor="@color/black"
+        android:hint="jot something"
+        android:layout_marginTop="20dp"
+        app:textStroke="true"
+        app:textStrokeColor="@color/blue"
+        android:background="@color/transparent"
+        android:focusableInTouchMode="true"
+        app:textStrokeWidth="15"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/test_button"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
