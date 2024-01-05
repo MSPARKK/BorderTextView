@@ -52,7 +52,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:textSize="28dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:hint="jot something"
         android:layout_marginTop="20dp"
         app:textStroke="true"
