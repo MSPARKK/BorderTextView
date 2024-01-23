@@ -1,6 +1,6 @@
 ext {
     PUBLISH_GROUP_ID = 'io.github.msparkk'
-    PUBLISH_VERSION = '0.0.1'
+    PUBLISH_VERSION = '0.0.2'
     PUBLISH_ARTIFACT_ID = 'BorderTextView'
     PUBLISH_DESCRIPTION = 'TextView with Border'
     PUBLISH_URL = 'https://github.com/MSPARKK/BorderTextView'
