@@ -1,4 +1,4 @@
-package com.mspark.bordertextview
+package com.mspark.bordertextviewLib
 
 import android.content.Context
 import android.graphics.Canvas

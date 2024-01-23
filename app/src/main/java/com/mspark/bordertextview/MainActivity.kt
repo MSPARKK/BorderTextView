@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.Gravity
 import android.widget.Button
 import android.widget.EditText
+import com.mspark.bordertextviewLib.BorderTextView
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

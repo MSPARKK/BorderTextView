@@ -7,7 +7,7 @@
     android:background="@color/green"
     tools:context=".MainActivity">
 
-    <com.mspark.bordertextview.BorderTextView
+    <com.mspark.bordertextviewLib.BorderTextView
         android:id="@+id/xml_text_view"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -23,7 +23,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.mspark.bordertextview.BorderTextView
+    <com.mspark.bordertextviewLib.BorderTextView
         android:id="@+id/programmatic_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -47,7 +47,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/programmatic_text_view"/>
 
-    <com.mspark.bordertextview.BorderEditText
+    <com.mspark.bordertextviewLib.BorderEditText
         android:id="@+id/main_edit_text"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

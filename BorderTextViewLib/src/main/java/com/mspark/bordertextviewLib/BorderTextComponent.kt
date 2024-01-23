@@ -1,4 +1,4 @@
-package com.mspark.bordertextview
+package com.mspark.bordertextviewLib
 
 import android.graphics.Canvas
 import android.graphics.Color
@@ -8,6 +8,7 @@ import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.Gravity
 import android.widget.TextView
+import com.mspark.bordertextviewlib.R
 
 class BorderTextComponent(private val view: TextView) {
     private var stroke = false

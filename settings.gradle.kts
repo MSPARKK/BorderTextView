@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "BorderTextView"
 include(":app")
-include(":BorderTextView")
+include(":BorderTextViewLib")

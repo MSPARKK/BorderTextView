@@ -39,5 +39,6 @@ dependencies {
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.appcompat:appcompat:1.6.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-    implementation(project(":BorderTextView"))
+    implementation(project(":BorderTextViewLib"))
+    implementation("androidx.multidex:multidex:2.0.1")
 }

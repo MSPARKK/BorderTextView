@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.mspark.bordertextview"
+    namespace = "com.mspark.bordertextviewlib"
     compileSdk = 33
 
     defaultConfig {
@@ -37,19 +37,5 @@ android {
 dependencies {
     implementation("androidx.core:core-ktx:1.8.0")
     implementation("androidx.appcompat:appcompat:1.6.0")
-}
-
-
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "com.github.msparkk"
-            artifactId = "BorderTextView"
-            version = "0.0.2"
-
-            afterEvaluate {
-                from(components["release"])
-            }
-        }
-    }
+    implementation("androidx.multidex:multidex:2.0.1")
 }
