@@ -4,6 +4,10 @@ plugins {
     id("maven-publish")
 }
 
+apply {
+    from("publish-remote.gradle")
+}
+
 android {
     namespace = "com.mspark.bordertextviewlib"
     compileSdk = 33
