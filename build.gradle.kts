@@ -3,7 +3,7 @@ plugins {
     id("com.android.application") version "7.4.2" apply false
     id("org.jetbrains.kotlin.android") version "1.8.0" apply false
     id("com.android.library") version "7.4.2" apply false
-    id("io.github.gradle-nexus.publish-plugin") version "1.1.0" apply true
+    id("io.github.gradle-nexus.publish-plugin") version "1.1.0"
 }
 
 buildscript {
@@ -13,5 +13,6 @@ buildscript {
     }
 }
 
-apply(from = "${rootDir}/scripts/publish-maven.gradle")
-apply(from = "publish.gradle")
+apply {
+    this.from("scripts/publish-root.gradle")
+}
