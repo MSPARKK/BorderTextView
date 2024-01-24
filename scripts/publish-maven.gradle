@@ -5,10 +5,12 @@ apply from: 'publish.gradle'
 
 task sourcesJar(type: Jar) {
     archiveClassifier.set("sources")
+    from javadoc.destinationDir
 }
 
 task javadocJar(type: Jar) {
     archiveClassifier.set("javadoc")
+    from sourceSets.main.allSource
 }
 
 artifacts {
@@ -76,6 +78,17 @@ publishing {
                     connection = PUBLISH_SCM_CONNECTION
                     developerConnection = PUBLISH_SCM_DEVELOPER_CONNECTION
                     url = PUBLISH_SCM_URL
+                }
+
+                withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    project.configurations.implementation.allDependencies.each {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
                 }
             }
         }
