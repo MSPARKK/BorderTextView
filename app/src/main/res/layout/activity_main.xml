@@ -56,6 +56,7 @@
         android:hint="jot something"
         android:layout_marginTop="20dp"
         app:textStroke="true"
+        android:gravity="center"
         app:textStrokeColor="@color/blue"
         android:background="@color/transparent"
         android:focusableInTouchMode="true"

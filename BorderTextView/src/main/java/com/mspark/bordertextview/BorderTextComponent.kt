@@ -73,7 +73,14 @@ class BorderTextComponent(private val view: TextView) {
                 val yPos = view.getLineBounds(i, this@BorderTextComponent.textBounds)
                 val lineStart = view.layout.getLineStart(i)
                 val lineEnd = view.layout.getLineEnd(i)
-                val lineString = view.text.substring(lineStart, lineEnd).trimEnd()
+                var lineString = view.text.substring(lineStart, lineEnd)
+
+
+
+                if (!lineString.contains("\n") && i != view.lineCount - 1) {
+                    lineString = lineString.trimEnd()
+                }
+                lineString = lineString.replace("\n", "")
 
                 canvas.drawText(lineString, xPos.toFloat(), yPos.toFloat(), strokePaint)
             }
