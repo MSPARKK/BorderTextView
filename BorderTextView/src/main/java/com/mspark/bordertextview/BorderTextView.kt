@@ -2,6 +2,7 @@ package com.mspark.bordertextview
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Typeface
 import android.util.AttributeSet
 
 class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
@@ -34,6 +35,11 @@ class BorderTextView : androidx.appcompat.widget.AppCompatTextView {
 
     fun setStrokeWidth(width: Int) {
         borderComponent.setStrokeWidth(width)
+    }
+
+    fun setTypeFace(typeface: Typeface) {
+        this.typeface = typeface
+        borderComponent.setTypeface(typeface)
     }
 
 }
