@@ -4,6 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.Rect
+import android.graphics.Typeface
 import android.text.TextPaint
 import android.util.AttributeSet
 import android.view.Gravity
@@ -13,6 +14,8 @@ class BorderTextComponent(private val view: TextView) {
     private var stroke = false
     private var strokeWidth = 0.0f
     private var strokeColor = 0
+    private var typeface: Typeface? = null
+
 
     private val strokePaint: Paint by lazy {
         TextPaint()
@@ -45,7 +48,7 @@ class BorderTextComponent(private val view: TextView) {
         strokePaint.apply {
             strokeWidth = this@BorderTextComponent.strokeWidth
             textSize = view.textSize
-            typeface = view.typeface
+            typeface = this@BorderTextComponent.typeface
             color = strokeColor
         }
 
@@ -98,6 +101,11 @@ class BorderTextComponent(private val view: TextView) {
             stroke = true
         }
         strokeWidth = width.toFloat()
+        view.invalidate()
+    }
+
+    fun setTypeface(typeface: Typeface) {
+        this.typeface = typeface
         view.invalidate()
     }
 }

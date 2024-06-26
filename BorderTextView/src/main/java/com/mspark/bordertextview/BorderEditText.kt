@@ -2,6 +2,7 @@ package com.mspark.bordertextview
 
 import android.content.Context
 import android.graphics.Canvas
+import android.graphics.Typeface
 import android.util.AttributeSet
 
 class BorderEditText : androidx.appcompat.widget.AppCompatEditText {
@@ -33,5 +34,10 @@ class BorderEditText : androidx.appcompat.widget.AppCompatEditText {
 
     fun setStrokeWidth(width: Int) {
         borderComponent.setStrokeWidth(width)
+    }
+
+    fun setTypeFace(typeface: Typeface) {
+        this.typeface = typeface
+        borderComponent.setTypeface(typeface)
     }
 }
